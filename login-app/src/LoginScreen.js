@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from './TrustHouseImage.webp'; // Import the logo image
 
+const SERVER = "http://localhost:8080";
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,7 @@ const Login = () => {
     const data = { username, password };
 
     try {
-      const response = await fetch('https://your-backend-api-url.com/login', {
+      const response = await fetch(`${SERVER}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
