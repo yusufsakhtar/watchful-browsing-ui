@@ -31,7 +31,7 @@ const Signup = () => {
       });
 
       if (response.ok) {
-        history.push('/login'); // Redirect to login after sign up
+        navigate('/login'); // Redirect to login after sign up
       } else {
         const result = await response.json();
         setErrorMessage(result.message || 'Sign up failed');
