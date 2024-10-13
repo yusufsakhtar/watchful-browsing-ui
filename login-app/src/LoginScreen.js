@@ -23,6 +23,7 @@ const Login = () => {
       if (response.ok) {
         // Redirect to dashboard or home page after successful login
         console.log("Login successful!");
+        navigate('/home');
       } else {
         const result = await response.json();
         setErrorMessage(result.message || 'Login failed');
