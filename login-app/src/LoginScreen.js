@@ -28,10 +28,10 @@ const Login = () => {
         navigate('/home');
       } else {
         const result = await response.json();
-        setErrorMessage(result.message || 'Login failed');
+        console.log(result.message || 'Login failed');
       }
     } catch (error) {
-      setErrorMessage('Error making the request.');
+      console.log('Error making the request.');
     }
   };
 

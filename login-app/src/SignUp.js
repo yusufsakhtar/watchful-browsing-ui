@@ -21,17 +21,18 @@ const Signup = () => {
       return;
     }
 
-    const data = { username, password };
+    const data = { userEmail: username, userPassword: password };
 
     try {
-      const response = await fetch(`${SERVER}/signup`, {
+      console.log(`username: ${username}, password ${password}, json stringified ${JSON.stringify(data)}`)
+      const response = await fetch(`${SERVER}/newuser`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
 
       if (response.ok) {
-        navigate('/login'); // Redirect to login after sign up
+        navigate('/'); // Redirect to login after sign up
       } else {
         const result = await response.json();
         setErrorMessage(result.message || 'Sign up failed');
