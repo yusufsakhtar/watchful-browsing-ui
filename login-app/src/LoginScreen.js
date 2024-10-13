@@ -9,10 +9,27 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle login logic here
-    navigate('/home');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { username, password };
+
+    try {
+      const response = await fetch('https://your-backend-api-url.com/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        // Redirect to dashboard or home page after successful login
+        console.log("Login successful!");
+      } else {
+        const result = await response.json();
+        setErrorMessage(result.message || 'Login failed');
+      }
+    } catch (error) {
+      setErrorMessage('Error making the request.');
+    }
   };
 
   return (
