@@ -237,3 +237,81 @@ a:hover {
   word-break: break-all; /* Handle long URLs */
 }
 
+
+/* Container for the AddUser screen */
+.add-user-container {
+  background-color: #1e1e1e; /* Matte black theme */
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Logout button on top left */
+.logout-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #555;
+}
+
+/* Centered input section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%; /* 3/4th of the screen */
+}
+
+/* Label for the email input */
+.input-label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Email input bar */
+.email-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 2px solid #4caf50; /* Green border */
+  margin-bottom: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.email-input::placeholder {
+  color: #888; /* Placeholder text color */
+}
+
+/* Add button */
+.add-button {
+  background-color: #4caf50; /* Green background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
