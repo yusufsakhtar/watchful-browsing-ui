@@ -13,25 +13,28 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { username, password };
+    const data = { userEmail:username, userPassword:password };
 
     try {
-      const response = await fetch(`${SERVER}/login`, {
+      const result = await fetch(`${SERVER}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
 
-      if (response.ok) {
+      const responseStatus = result.status
+      const responseMessage = await result.text();
+      //console.log(response)
+
+      if (responseStatus == 200) {
         // Redirect to dashboard or home page after successful login
         console.log("Login successful!");
-        navigate('/home');
+        navigate('/itemsList');
       } else {
-        const result = await response.json();
-        console.log(result.message || 'Login failed');
+        console.log(responseMessage);
       }
     } catch (error) {
-      console.log('Error making the request.');
+      console.log(error);
     }
   };
 

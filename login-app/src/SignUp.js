@@ -24,12 +24,14 @@ const Signup = () => {
     const data = { userEmail: username, userPassword: password };
 
     try {
-      console.log(`username: ${username}, password ${password}, json stringified ${JSON.stringify(data)}`)
       const response = await fetch(`${SERVER}/newuser`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
+
+      console.log(`username: ${username}, password ${password}, json stringified ${JSON.stringify(data)}`)
+
 
       if (response.ok) {
         navigate('/'); // Redirect to login after sign up
